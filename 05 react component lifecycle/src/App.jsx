@@ -8,23 +8,23 @@ function App() {
   const [search, setsearch] = useState("")
 
   const [recepts, setrecepts] = useState([])
-  const getrecepts = async()=>{
+  const getrecepts = async () => {
     const data = await controller.getAllData("recipes");
     setrecepts(data);
   }
   useEffect(() => {
     getrecepts()
-  
-    
+
+
   }, [])
 
   return (<>
-  <h1 style={{color : "red", textAlign: "center"}}><b>Farid Chef's menu</b></h1>
-  <Search search = {search} setsearch = {setsearch}/>
+    <h1 style={{ color: "red", textAlign: "center" }}><b>Farid Chef's menu</b></h1>
+    <Search search={search} recepts={recepts} setrecepts={setrecepts} setsearch={setsearch} />
     <div className='cards'>
-      <Cards recepts = {recepts} setrecepts = {setrecepts} />
+      <Cards recepts={recepts} setrecepts={setrecepts} />
     </div>
-    </>
+  </>
   )
 }
 
