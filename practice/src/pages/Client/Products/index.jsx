@@ -4,6 +4,7 @@ import { FavoritesContext } from "../../../context/WishlistProvider/index";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import controller from "../../../services";
+import './index.css'
 
 const Product = () => {
   const { toggleFavorites, favorites } = useContext(FavoritesContext);
@@ -70,10 +71,11 @@ const Product = () => {
                     <h5 className="card-title">{p.title.slice(0, 80)}</h5>
                     <p className="card-text">{p.description.slice(0, 80)}</p>
                   </div>
+                  <div>
                   <NavLink to={`${p.id}`}>
                     <button className="btn btn-primary">Detail</button>
                   </NavLink>
-                  <button
+                  <button style={{width:"50px" , marginLeft:"2rem"}}
                     onClick={() => toggleFavorites(p)} // Use p instead of c
                     className="btn btn-danger"
                   >
@@ -83,6 +85,7 @@ const Product = () => {
                       <FaRegHeart />
                     )}
                   </button>
+                  </div>
                 </div>
               </div>
             );
